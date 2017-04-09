@@ -1,0 +1,22 @@
+{
+  "name": "theater",
+  "description": "theater manager",
+  "main": "",
+  "authors": [
+    "Rysev Alexey"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/rysev-a/theater",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "1",
+    "angular": "1.6",
+    "bootstrap": "^3.3.7"
+  }
+}
