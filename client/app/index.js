@@ -1,5 +1,9 @@
+import angular from 'angular';
+import 'angular-route';
+import './wizard';
+
 angular.
-  module('theater').
+  module('theater', ['wizard', 'ngRoute']).
   config(['$locationProvider' ,'$routeProvider',
     function config($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
@@ -8,14 +12,14 @@ angular.
         when('/start', {
           template: '<start></start>'
         }).
-        when('/profile', {
-          template: '<profile></profile>'
+        when('/customer', {
+          template: '<customer></customer>'
         }).
         when('/calendar', {
           template: '<calendar></calendar>'
         }).
-        when('/guests', {
-          template: '<guests></guests>'
+        when('/tickets', {
+          template: '</tickets></tickets>'
         }).
         otherwise('/start');
     }

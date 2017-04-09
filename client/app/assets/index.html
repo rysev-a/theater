@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" ng-app="theater">
+  <head>
+    <meta charset="utf-8">
+    <title>Theater</title>
+    <link rel="stylesheet" href="app.css" />
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="#!/start">start</a>
+        <a href="#!/customer">customer</a>
+        <a href="#!/calendar">calendar</a>
+        <a href="#!/tickets">tickets</a>
+      </nav>
+      <main>
+        <div ng-view></div>
+      </main>
+    </div>
+  </body>
+</html>
