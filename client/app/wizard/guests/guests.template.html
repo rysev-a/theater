@@ -4,26 +4,46 @@
   <div class="row">
     <div class="col-md-6">
 
-      <div class="form-group">
-        <label>Имя</label>
-        <input type="text"
-               class="form-control"
-               placeholder="Введите имя">
+      <div ng-repeat="(key, guest) in $ctrl.guestsData">
+        <hr/>
+        <div class="guest-item">
+
+          <div class="form-group">
+            <label>Имя</label>
+            <input type="text"
+                   class="form-control"
+                   ng-model="guest.first_name"
+                   placeholder="Введите имя">
+          </div>
+          <div class="form-group">
+            <label>Фамилия</label>
+            <input type="text"
+                   class="form-control"
+                   ng-model="guest.last_name"
+                   placeholder="Введите фамилию">
+          </div>
+          <div class="form-group">
+            <label>Дата рождения</label>
+            <input type="date"
+                   class="form-control"
+                   ng-model="guest.birst_day"
+                   placeholder="Укажите дату рождения">
+          </div>
+
+          <a class="btn btn-danger"
+             ng-click="$ctrl.removeGuest(key)">Удалить</a>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Фамилия</label>
-        <input type="text"
-               class="form-control"
-               placeholder="Введите фамилию">
-      </div>
-      <div class="form-group">
-        <label>Дата рождения</label>
-        <input type="date"
-               class="form-control"
-               placeholder="Укажите дату рождения">
-      </div>
+
     </div>
   </div>
 </form>
+
+
+<hr/>
 <a class="btn btn-primary" href="#!/calendar">Назад</a>
-<a class="btn btn-success">Готово!</a>
+<a class="btn btn-primary" ng-click="$ctrl.addGuest()">Добавить посетителя</a>
+<a class="btn btn-success" ng-click="$ctrl.submit()">Готово!</a>
+
+
+

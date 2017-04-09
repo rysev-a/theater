@@ -6,7 +6,7 @@ angular.
       self.data = {
         profile: {},
         calendar: {},
-        guests: []
+        guests: [{}]
       };
 
       return {
@@ -16,6 +16,10 @@ angular.
 
         get: function (field) {
           return angular.copy(self.data[field]);
+        },
+
+        getJSON: function () {
+          return JSON.stringify(self.data);
         }
       };
     }
