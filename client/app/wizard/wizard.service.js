@@ -4,9 +4,20 @@ angular.
     function() {
       var self = this;
       self.data = {
-        profile: {},
-        calendar: {},
-        guests: [{}]
+        profile: {
+          first_name: 'alex',
+          last_name: 'alex',
+          birth_day: new Date(),
+          phone: '99999'
+        },
+        calendar: {
+          date: new Date()
+        },
+        guests: [{
+          first_name: 'alex',
+          last_name: 'alex',
+          birth_day: new Date()
+        }]
       };
 
       return {
@@ -18,8 +29,15 @@ angular.
           return angular.copy(self.data[field]);
         },
 
-        getJSON: function () {
-          return JSON.stringify(self.data);
+        format: function () {
+          var tickets = self.data.guests.map(function(guest) {
+            return angular.merge(guest, {date: self.data.calendar.date});
+          });
+
+          return {
+            client: self.data.profile,
+            tickets: tickets
+          };
         }
       };
     }
