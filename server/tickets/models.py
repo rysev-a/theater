@@ -19,7 +19,7 @@ class Order(models.Model):
 
 
 class Ticket(models.Model):
-    order = models.ForeignKey(Order)
+    order = models.ForeignKey(Order,  related_name='orders')
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     birth_day = models.DateField()
