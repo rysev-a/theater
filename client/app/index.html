@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en" ng-app="theater">
   <head>
-  
     <meta charset="utf-8">
     <title>Theater</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -10,23 +9,28 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
 
     <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
     <script src="wizard/wizard.module.js"></script>
 
+    <!-- components -->
     <script src="wizard/profile/profile.module.js"></script>
     <script src="wizard/profile/profile.component.js"></script>
-
     <script src="wizard/calendar/calendar.module.js"></script>
     <script src="wizard/calendar/calendar.component.js"></script>
-
     <script src="wizard/guests/guests.module.js"></script>
     <script src="wizard/guests/guests.component.js"></script>
-
-
-
   </head>
   <body>
-    <profile></profile>
-    <calendar></calendar>
-    <guests></guests>
+    <div class="container">
+      <nav>
+        <a href="#!/start">start</a>
+        <a href="#!/profile">profile</a>
+        <a href="#!/calendar">calendar</a>
+        <a href="#!/guests">guests</a>
+      </nav>
+      <main>
+        <div ng-view></div>
+      </main>
+    </div>
   </body>
 </html>
