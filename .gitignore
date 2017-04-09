@@ -1,2 +1,7 @@
 client/node_modules/
 client/app/bower_components/
+*.egg-info
+*.pot
+*.py[co]
+/server/db.sqlite3
+/server/theater/settings_local.py
