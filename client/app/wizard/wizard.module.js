@@ -1,1 +1,5 @@
-angular.module('wizard', ['wizard.profile'])
+angular.module('wizard', [
+  'wizard.profile',
+  'wizard.calendar',
+  'wizard.guests'
+]);
