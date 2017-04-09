@@ -1,4 +1,6 @@
 import angular from 'angular';
+import {check} from '../helpers';
+
 
 angular.
   module('wizard.customer', []).
@@ -10,6 +12,14 @@ angular.
         $scope.$watch('$ctrl.customer', ()=> (
           Wizard.set('customer', this.customer)
         ), true);
+
+        this.check = ()=> (check(this.customer, [
+          'first_name',
+          'last_name',
+          'birth_day',
+          'phone'
+        ]));
       }
     ]
   });
+

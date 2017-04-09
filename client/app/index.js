@@ -1,6 +1,8 @@
 import angular from 'angular';
 import 'angular-route';
 import './wizard';
+import moment from 'moment';
+
 
 angular.
   module('theater', ['wizard', 'ngRoute']).
@@ -24,3 +26,7 @@ angular.
         otherwise('/start');
     }
   ]);
+
+Date.prototype.toJSON = function() {
+  return moment(this).format('YYYY-MM-DD');
+};

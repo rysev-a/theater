@@ -1,10 +1,10 @@
-from .models import Order, Ticket, Client
+from .models import Order, Ticket, Customer
 from rest_framework import serializers
 
 
-class ClientSerializer(serializers.ModelSerializer):
+class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Client
+        model = Customer
         fields = ('first_name', 'last_name', 'birth_day', 'phone')
 
 
@@ -15,19 +15,19 @@ class TicketSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    client = ClientSerializer()
+    customer = CustomerSerializer()
     tickets = TicketSerializer(many=True)
     
     class Meta:
         model = Order
-        fields = ('id', 'client', 'tickets')
+        fields = ('id', 'customer', 'tickets')
 
     def create(self, validated_data):
         tickets_data = validated_data.pop('tickets')
-        client_data = validated_data.pop('client')
+        customer_data = validated_data.pop('customer')
 
-        client = Client.objects.create(**client_data)
-        order = Order.objects.create(client=client, **validated_data)
+        customer = Customer.objects.create(**customer_data)
+        order = Order.objects.create(customer=customer, **validated_data)
         for ticket_data in tickets_data:
             Ticket.objects.create(order=order, **ticket_data)
 

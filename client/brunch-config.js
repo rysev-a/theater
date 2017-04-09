@@ -14,5 +14,11 @@ module.exports = {
   },
   plugins: {
     babel: {presets: ['es2015']}
+  },
+
+  npm: {
+    globals: {
+      $: 'jquery'
+    }
   }
 };

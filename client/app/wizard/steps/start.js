@@ -1,5 +1,6 @@
 import angular from 'angular';
 
+
 angular.
   module('wizard.start', []).
   component('start', {

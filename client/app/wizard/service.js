@@ -13,8 +13,8 @@ export default () => {
     get: (field) => (angular.copy(data[field])),
 
     format: () => {
-      let tickets = data.guests.map(function(guest) {
-        return angular.merge(guest, {date: data.calendar.date});
+      let tickets = data.tickets.map(function(ticket) {
+        return angular.merge(ticket, {date: data.calendar.date});
       });
       
       return {

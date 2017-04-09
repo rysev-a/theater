@@ -42,6 +42,9 @@
 
 <hr/>
 <a class="btn btn-primary" href="#!/calendar">Назад</a>
+<a class="btn btn-primary" ng-click="$ctrl.me()">Приобрести билет для себя</a>
 <a class="btn btn-primary" ng-click="$ctrl.add()">Добавить посетителя</a>
-<a class="btn btn-success" ng-click="$ctrl.submit()">Готово!</a>
+<a class="btn btn-success"
+   ng-if="$ctrl.check()"
+   ng-click="$ctrl.submit()">Готово!</a>
 

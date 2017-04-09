@@ -12,7 +12,9 @@
       </div>
 
       <a class="btn btn-primary" href="#!/customer">Назад</a>
-      <a class="btn btn-success" href="#!/tickets">Следующий шаг</a>
+      <a class="btn btn-success"
+         ng-if="$ctrl.check()"
+         href="#!/tickets">Следующий шаг</a>
     </div>
   </div>
 </form>

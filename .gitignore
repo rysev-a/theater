@@ -1,6 +1,5 @@
 client/node_modules/
-client/app/bower_components/
-client/app/static/
+client/public/
 *.egg-info
 *.pot
 *.py[co]
