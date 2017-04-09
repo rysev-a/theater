@@ -10,8 +10,6 @@ angular.
 
         $scope.$watch('$ctrl.guestsData', function() {
           Wizard.set('guests', self.guestsData);
-
-          console.log(self.guestsData);
         }, true);
 
         self.addGuest = function() {

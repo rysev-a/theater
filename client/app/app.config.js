@@ -6,7 +6,7 @@ angular.
 
       $routeProvider.
         when('/start', {
-          template: '<h1>Добро пожаловать</h1>'
+          template: '<start></start>'
         }).
         when('/profile', {
           template: '<profile></profile>'
