@@ -4,5 +4,5 @@ angular.module('theater', [
 ]);
 
 Date.prototype.toJSON = function() {
-  return moment(this).format('HHHH-MM-DD');
+  return moment(this).format('YYYY-MM-DD');
 };

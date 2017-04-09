@@ -33,7 +33,7 @@ angular.
           var tickets = self.data.guests.map(function(guest) {
             return angular.merge(guest, {date: self.data.calendar.date});
           });
-
+          
           return {
             client: self.data.profile,
             tickets: tickets
