@@ -2,7 +2,7 @@ export default () => {
   let data = {
     customer: {},
     calendar: {},
-    guests: [{}]
+    tickets: [{}]
   };
 
   return {

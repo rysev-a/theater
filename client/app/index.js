@@ -19,7 +19,7 @@ angular.
           template: '<calendar></calendar>'
         }).
         when('/tickets', {
-          template: '</tickets></tickets>'
+          template: '<tickets></tickets>'
         }).
         otherwise('/start');
     }

@@ -34986,7 +34986,7 @@ _angular2.default.module('theater', ['wizard', 'ngRoute']).config(['$locationPro
   }).when('/calendar', {
     template: '<calendar></calendar>'
   }).when('/tickets', {
-    template: '</tickets></tickets>'
+    template: '<tickets></tickets>'
   }).otherwise('/start');
 }]);
 
@@ -35028,7 +35028,7 @@ exports.default = function () {
   var data = {
     customer: {},
     calendar: {},
-    guests: [{}]
+    tickets: [{}]
   };
 
   return {
@@ -35129,25 +35129,46 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-_angular2.default.module('wizard.tickets', []).component('tickets', {
-  templateUrl: 'templates/tickets.html'
-});
-
 var TicketsController = function () {
-  function TicketsController($scope, Wizard) {
+  function TicketsController(Wizard, $scope, $http) {
     _classCallCheck(this, TicketsController);
 
-    this.init($scope, Wizard);
+    this.init(Wizard, $scope, $http);
   }
 
   _createClass(TicketsController, [{
     key: 'init',
-    value: function init($scope, Wizard) {
+    value: function init(Wizard, $scope, $http) {
+      var _this = this;
+
+      this.$http = $http;
       this.tickets = Wizard.get('tickets');
 
-      $scope.$watch('$ctrl.guestsData', function () {
-        Wizard.set('guests', self.guestsData);
+      $scope.$watch('$ctrl.tickets', function () {
+        return Wizard.set('tickets', _this.tickets);
       }, true);
+    }
+  }, {
+    key: 'add',
+    value: function add() {
+      this.tickets.push({});
+    }
+  }, {
+    key: 'remove',
+    value: function remove(index) {
+      this.tickets.splice(index, 1);
+    }
+  }, {
+    key: 'submit',
+    value: function submit() {
+      var postData = Wizard.format();
+
+      this.$http.post('/api/orders/', JSON.stringify(postData), { headers: { 'X-CSRFToken': $.cookie('csrftoken') } }).then(function (response) {
+        console.log('cool');
+        //window.location = 'https://kassa.yandex.ru/';
+      }, function (response) {
+        alert('Что-то пошло не так, проверьте введенные данные');
+      });
     }
   }]);
 
@@ -35155,43 +35176,14 @@ var TicketsController = function () {
 }();
 
 TicketsController.$inject = ['$scope', 'Wizard'];
-
-// ['Wizard', '$scope', '$http',
-//       function GuestsController(Wizard, $scope, $http) {
-//         var self = this;
-
-//         self.guestsData = Wizard.get('guests');
-
-//         $scope.$watch('$ctrl.guestsData', function() {
-//           Wizard.set('guests', self.guestsData);
-//         }, true);
-
-//         self.addGuest = function() {
-//           self.guestsData.push({});
-//         };
-
-//         self.removeGuest = function(index) {
-//           self.guestsData.splice(index, 1);
-//         };
-
-//         self.submit = function() {
-//           var postData = Wizard.format();
-
-//           $http.post('/api/orders/', 
-//             JSON.stringify(postData),
-//             {headers: {'X-CSRFToken': $.cookie('csrftoken')}}
-//           ).then(function (response) {
-//               window.location = 'https://kassa.yandex.ru/';
-//             }, function (response) {
-//               alert('Что-то пошло не так, проверьте введенные данные');
-//             });
-//         }
-//       }
-//     ]
+_angular2.default.module('wizard.tickets', []).component('tickets', {
+  templateUrl: 'templates/tickets.html',
+  controller: ['Wizard', '$scope', '$http', TicketsController]
+});
 
 });
 
-;require.alias("process/browser.js", "process");process = require('process');require.register("___globals___", function(exports, require, module) {
+require.alias("process/browser.js", "process");process = require('process');require.register("___globals___", function(exports, require, module) {
   
 });})();require('___globals___');
 
